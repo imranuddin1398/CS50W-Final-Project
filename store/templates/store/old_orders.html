@@ -1,0 +1,39 @@
+{% extends "store/layout.html" %}
+
+{% block body %}
+<header>
+    <h1>Your Previous Orders</h1>
+</header>
+
+<ul class="cart-list">
+    {% if page_obj %}
+    {% for order in page_obj %}
+    <li class="cart-item">
+        <img src="{{ order.product.image.url }}" alt="{{ order.product.name }}">
+        <h3>{{ order.product.name }}</h3>
+        <p>Quantity: {{ order.quantity }}</p>
+        <p>Price: Rs: {{ order.product.price }}</p>
+        <p>Date: {{ order.created_at }}</p>
+    </li>
+    {% endfor %}
+    {% else %}
+    <p>You have no previous orders.</p>
+    {% endif %}
+</ul>
+
+<div class="pagination">
+    {% if page_obj.has_other_pages %}
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+        </span>
+    {% endif %}
+</div>
+{% endblock %}

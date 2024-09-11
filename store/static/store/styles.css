@@ -1,0 +1,298 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333;
+}
+
+.img-p {
+    width: 90%;
+    height: auto;
+    display: block;
+}
+
+.img-p1 {
+    max-width: 300px;
+    height: auto;
+    display: block;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.step-links {
+    display: inline-block;
+}
+
+.step-links a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: rgb(240, 171, 171);
+    color: #0056b3;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.step-links a:hover {
+    background-color: rgb(236, 55, 55);
+}
+
+.current {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: rgb(241, 225, 225);
+    color: #0056b3;
+    border-radius: 3px;
+}
+
+.img-fluid {
+    max-width: 250px;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.navbar-brand,
+.nav-item {
+
+    margin-right: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+
+}
+
+.nav-right {
+    margin-left: auto;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: blue;
+}
+
+.img-cart {
+    width: 50px;
+}
+
+.img-pro {
+    width: 100px;
+}
+
+.form-control {
+    padding: 8px;
+    border: 1px solid blue;
+    border-radius: 8px 0 0 8px;
+}
+.form-control1 {
+    padding: 8px;
+    border: 1px solid blue;
+    border-radius: 8px 0 0 8px;
+    }
+
+.form-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#text {
+    padding: 8px;
+    border: 1px solid blue;
+    border-radius: 8px 0 0 8px;
+    font-size: large;
+    width: 80%;
+    margin: 2px;
+}
+.list-group-item {
+    border: 1px solid lightgray;
+    list-style: none;
+    margin: 2px;
+    padding: 3px;
+    font-size: small;
+}
+.btn {
+    padding: 8px;
+}
+
+.btn-red {
+    background-color: rgb(240, 171, 171);
+    border: 0 solid black;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+.btn-yel {
+    background-color: yellow;
+    border: 0 solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: blue;
+}
+.btn-yel:hover {
+    background-color: rgb(153, 153, 3);
+}
+.btn-grn1 {
+    background-color: rgb(64, 235, 64);
+    border: 0 solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 13px;
+    color: blue;
+    opacity: 0;
+}
+
+.btn-blue{
+    background-color: #0056b3;
+    border: 0 solid black;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    height: 57px;
+}
+.btn-blue:hover {
+    background-color: #034185;
+}
+.btn-grn {
+    background-color: rgb(64, 235, 64);
+    border: 0 solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 13px;
+    color: blue;
+}
+
+.btn-grn:hover,
+.btn-grn1:hover {
+    background-color: rgb(22, 175, 22);
+}
+
+.btn-red svg {
+    height: 20px;
+    width: 20px;
+}
+
+.btn-red:hover {
+    background-color: rgb(236, 55, 55);
+}
+
+.contaner {
+    display: flex;
+    padding: 10px;
+
+}
+
+.card {
+    margin: 10px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    width: 23%;
+}
+
+.card:hover .btn-grn1,
+.card:focus .btn-grn1 {
+    opacity: 1;
+
+}
+
+.font {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: blue;
+}
+
+.font,
+.img-p {
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid black;
+    padding: 3px;
+    width: auto;
+}
+
+.cart-item img {
+    width: 100px;
+}
+
+.cart-item h3,
+.cart-item p {
+    margin: 10px;
+}
+
+#category {
+    padding: 6px;
+    border: 1px solid blue;
+    border-radius: 8px;
+}
+
+.pro-head{
+    color: blue;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.checkout a {
+    margin: 3px;
+}
+
+th {
+    background-color: aquamarine;
+    border: 1px solid blue;
+}
+
+td {
+    border: 1px solid blue;
+    text-align: center;
+}
+@media only screen and (max-width: 600px) {
+    .contaner {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    .card {
+        margin: 10px;
+        border: 1px solid lightgray;
+        border-radius: 8px;
+        width: 90%;
+    }
+}

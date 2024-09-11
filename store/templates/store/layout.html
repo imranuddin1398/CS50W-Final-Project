@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Store{% endblock %}</title>
+
+    <link href="{% static 'store/styles.css' %}" rel="stylesheet">
+    <!-- <script src="{% static 'store/store.js' %}"></script> -->
+</head>
+
+<body>
+    <nav class="navbar-nav">
+        <a class="navbar-brand" href="{% url 'product_list' %}">
+            <img class="img-fluid" src="{% static 'Images/imizone.png' %}" alt="imiZONE" title="imiZONE Marketplace">
+        </a>
+    
+        <ul class="navbar">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'product_list' %}">
+                    <img class="img-pro" src="{% static 'Images/Product.png' %}" alt="Products" title="Products">
+                </a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'cart' %}">
+                    <img class="img-cart" src="{% static 'Images/cart.png' %}" alt="Cart" title="Shopping Cart">
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'old_orders' %}">
+                    <img class="img-cart" src="{% static 'Images/history.png' %}" alt="Old order" title="Order History">
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+        
+        <!-- Search Bar -->
+        <form class="form-inline" method="GET" action="{% url 'product_list' %}">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="q">
+            <button class="btn btn-red" type="submit">🔍</button>
+        </form>
+        
+        <ul>
+            {% if user.is_authenticated %}
+            <li class="nav-right">
+                <a class="nav-link" href="{% url 'profile' username=user.username %}" style="color: red;"><strong>{{ user.username }}</strong></a>
+            </li>
+            <li class="nav-right">
+                <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+            </li>
+            {% else %}
+            <li class="nav-right">
+                <a class="nav-link" href="{% url 'login' %}">Log In</a>
+            </li>
+            <li class="nav-right">
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    
+
+
+    <div class="body container">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>

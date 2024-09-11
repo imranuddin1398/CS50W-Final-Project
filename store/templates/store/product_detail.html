@@ -1,0 +1,30 @@
+{% extends "store/layout.html" %}
+
+{% block body %}
+<h1 class="pro-head">{{ product.name }}</h1>
+<img class="img-p1" src="{{ product.image.url }}" alt="{{ product.name }}">
+<p>Description: <strong>{{ product.description }}</strong></p>
+<p>Rs: <strong>{{ product.price }}</strong></p>
+<a class="btn btn-grn" href="{% url 'add_to_cart' product.pk %}">Add to Cart</a>
+
+<br/><br/>
+<h2>Product Reviews</h2>
+{% if user.is_authenticated %}
+<form action="{% url 'addReview' id=product.id %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <textarea name="newReview" id="text" placeholder="Add a Review"></textarea>
+        <button type="submit" class="btn btn-blue mx-3">Add</button>
+    </div>
+</form>
+{% endif %}
+<ul class="list-group">
+    {% for review in allReviews %}
+    <li class="list-group-item">
+        {{ review.message }}
+        <br />
+        <p>Posted by <strong>{{ review.author }}</strong></p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

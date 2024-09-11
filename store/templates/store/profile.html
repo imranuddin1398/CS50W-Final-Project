@@ -1,0 +1,7 @@
+{% extends "store/layout.html" %}
+
+{% block body %}
+<h1>{{ profile_user.user.username }}'s Profile</h1>
+<p>Email: {{ profile_user.user.email }}</p>
+<p>Wallet Balance: Rs. {{ profile_user.wallet_balance }}</p>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "store/layout.html" %}
+
+
+{% block body %}
+<header>
+    <h1>Products {% if selected_category %} - {{ selected_category.name }}{% endif %}</h1>
+
+    <!-- Category Dropdown -->
+    <label for="category">Category</label>
+    <select name="category" id="category" onchange="location = this.value;">
+        <option value="{% url 'product_list' %}">All Categories</option>
+        {% for cat in categories %}
+            <option value="{% url 'product_list' %}?category={{ cat.id }}" 
+                {% if selected_category == cat.id %}selected{% endif %}>
+                {{ cat.name }}
+            </option>
+        {% endfor %}
+    </select>
+</header>
+<div class="contaner">
+    {% for product in page_obj.object_list %}
+    <div class="card">
+        <a class="font" href="{% url 'product_detail' product.pk %}">
+            <img class="img-p" src="{{ product.image.url }}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+            <p>Rs: {{ product.price }}</p>
+        </a>
+        <a class="btn btn-grn1" href="{% url 'add_to_cart' product.pk %}">Add to Cart</a>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a href="?page=1{% if selected_category %}&category={{ selected_category }}{% endif %}">&laquo; first</a>
+        <a
+            href="?page={{ page_obj.previous_page_number }}{% if selected_category %}&category={{ selected_category }}{% endif %}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+        <a
+            href="?page={{ page_obj.next_page_number }}{% if selected_category %}&category={{ selected_category }}{% endif %}">next</a>
+        <a
+            href="?page={{ page_obj.paginator.num_pages }}{% if selected_category %}&category={{ selected_category }}{% endif %}">last
+            &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}
+

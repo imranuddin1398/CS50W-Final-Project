@@ -1,0 +1,5 @@
+Django==5.0.7
+djangorestframework==3.14.0
+Pillow==10.0.0
+sqlite3==3.36.0         
+python-dotenv== 1.0.1         
